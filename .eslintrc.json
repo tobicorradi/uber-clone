@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "standard-with-typescript"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "simple-import-sort"],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/react-in-jsx-scope": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // React
+          ["^(@|react)(/.*|$)"],
+          // Packages with 'react' in the name
+          ["^react", "^@?\\w"],
+          //MUI
+          ["^.*expo"],
+          // Screens
+          ["^.*screens.*$"],
+          // Components
+          ["^.*components.*$"],
+          // Hooks
+          ["^.*hooks.*$"],
+          // Context
+          ["^.*context.*$"],
+          // Routes
+          ["^.*routes.*$"],
+          // Services
+          ["^.*services.*$"],
+          // Utils
+          ["^.*utils.*$"],
+          // Constants
+          ["^.*const.*$"],
+          // Types
+          ["^.*types.*$"],
+          // Mocks
+          ["^.*mocks.*$"],
+          // Side effects
+          ["^\\u0000"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Assets
+          ["^.*assets.*$"],
+          // Style imports.
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ]
+  }
+}
